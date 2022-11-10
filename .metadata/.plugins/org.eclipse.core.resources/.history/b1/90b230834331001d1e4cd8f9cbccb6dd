@@ -1,0 +1,94 @@
+package com.app.warehouse.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.app.warehouse.model.ShipmentType;
+import com.app.warehouse.service.IShipmentTypeService;
+
+@Controller
+@RequestMapping("/ship")
+public class ShipmentTypeController {
+
+	@Autowired
+		private IShipmentTypeService service;
+	
+	@GetMapping("/show")
+	public String showRegisterPage()
+	{
+		return "ShipmentTypeRegister";
+	}
+	
+	@PostMapping("/save")
+	public String saveShipmentType(//read from Data from UI(given by container)
+			@ModelAttribute ShipmentType shipmentType,
+			Model model //to send data to UI
+)
+	{
+		Integer id=service.saveShipmentType(shipmentType);
+		String message="ShipmentType "+id+" Saved successfully";
+		model.addAttribute("message", message);
+		return "ShipmentTypeRegister";
+	}
+	
+	
+	@GetMapping("/all")
+	public String fetchShipmentType(Model model)
+	{
+		
+		List<ShipmentType>list=service.getAllShipmentType();
+		model.addAttribute("list", list);
+		return "ShipmentTypeData";
+		
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteShipmentType(@PathVariable Integer id,Model model)
+	{
+		String msg=null;
+		if(service.isShipmentTypeExist(id))
+		{
+			service.deleteShipmentType(id);
+			msg="Shipment '"+id+"' Delete Successfully";
+		}
+		else
+		{
+			msg="ShipmentType '"+id+"' Not Exist";
+		}
+		
+		model.addAttribute("message", msg);
+		List<ShipmentType>list=service.getAllShipmentType();
+		model.addAttribute("list", list);
+		return "ShipmentTypeData";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String editShipmentType(@PathVariable Integer id, Model model)
+	{
+		String page=null;
+		if(service.isShipmentTypeExist(id))
+		{
+			Optional<ShipmentType>opt=service.getOneShipmentType(id);
+			if(opt.isPresent())
+			{
+				ShipmentType st=opt.get();
+				model.addAttribute("shipmentType", st);
+				page="ShipmentTypeEdit";
+			}
+			else
+			{
+				page="redirect:../all";
+			}
+		}
+		return page;
+	}
+}

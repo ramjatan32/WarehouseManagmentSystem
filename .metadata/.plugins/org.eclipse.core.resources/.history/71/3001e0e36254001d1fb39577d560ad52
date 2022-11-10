@@ -1,0 +1,19 @@
+package com.app.warehouse;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WarehouseAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WarehouseAppApplication.class, args);
+
+		 String str="Ram jatan Kumar";
+		 	char []charr=str.toCharArray();
+		 	for(int i=charr.length-1;i>=0;i--)
+		 	{
+		 		System.out.print(charr[i]);
+		 	}
+	}
+}

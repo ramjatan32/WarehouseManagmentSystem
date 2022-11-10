@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<title>welcome to WhUser Registration form</title>
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<form action="/whuser/save" method="post">
+				<div class="card-header bg-primary text-center text-white">
+					<h1>WHUSER TYUPE REGISTRATION FORM!!</h1>
+				</div>
+				<div class="card-body">
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userType"> USER TYPE</label>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="userType" value="Vendor">
+							Vendor &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
+								name="userType" value="Customer">Customer
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="usrCode"> USER CODE</label>
+
+						</div>
+						<div class="col-4">
+							<input type="text" name="userCode" class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userFor"> USER FOR</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="usrFor" class="form-control bg-info"
+								readonly="readonly">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userEmail"> USER EMAIL</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="userEmail" class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userContact"> USER CONTACT</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="userContact" class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userIdType"> USER ID TYPE</label>
+						</div>
+						<div class="col-4">
+							<select name="userIdType" class="form-control">
+								<option value="">--SELECT--</option>
+								<option value="PAN CARD">PAN CARD</option>
+								<option value="AADHAR CARD">AADHAR CARD</option>
+								<option value="VOTER CARD">VOTER CARD</option>
+								<option value="OTHER">OTHER</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="ifOther"> IF OTHER</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="ifOther" class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="idNumber"> ID NUMBER</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="idNumber" class="form-control">
+						</div>
+					</div>
+		<div class="row mt-3">
+		<div class="col-4">
+		
+		</div>
+		<div class="col-4">
+		<input type="submit" value="CREATE WHUSER" class="btn btn-success form-control">
+		</div>
+		</div>
+				</div>
+		<div th:if="${message!=null}">
+				<div class="card-footer bg-warning text-center text-white">
+					<b><span th:text="${message}"></span> </b>
+				</div>
+		</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

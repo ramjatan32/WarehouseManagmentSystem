@@ -1,0 +1,23 @@
+package com.app.warehouse.service.impl;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.warehouse.model.ShipmentType;
+import com.app.warehouse.repo.IShipmentTypeRepo;
+import com.app.warehouse.service.IShipmentTypeService;
+
+@Service
+public class ShipmentTypeServiceImpl  implements IShipmentTypeService{
+
+	@Autowired
+	private IShipmentTypeRepo repo;
+	
+	@Transactional
+	public Integer saveShipmentType(ShipmentType st) {
+		return repo.save(st).getId();
+	}
+
+}

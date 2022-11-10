@@ -1,0 +1,90 @@
+package com.app.warehouse.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.app.warehouse.model.Uom;
+import com.app.warehouse.service.IUomService;
+
+@Controller
+@RequestMapping("/uom")
+public class UomController {
+
+	
+	@Autowired
+	private IUomService service;
+	
+	@GetMapping("/show")
+	public String showUomRegister()
+	{
+		return "UomRegister";
+	}
+	
+	
+	@PostMapping("/save")
+	public String SaveUom(@ModelAttribute Uom um, Model model)
+	{
+		String id=service.saveUom(um);
+		String msg="Uom '"+id+"' saved Successfully";
+		model.addAttribute("message", msg);
+		return "UomRegister";
+	}
+	
+	@GetMapping("/all")
+	public String fetchUom(Model model)
+	{
+		List<Uom>list=service.getAllUomList();
+		model.addAttribute("list", list);
+		return "UomListData";
+	}
+	
+	
+	@GetMapping("/delete/{id}")
+	public String deleteUom(@PathVariable String id,Model model)
+	{
+		String msg=null;
+		if(service.isUomExit(id))
+		{
+			service.deleteUom(id);
+			msg="Uom '"+id+"' Deleted Success";
+		}
+		else
+		{
+			msg=" Uom '"+id+"' Not Exist in Data Base";
+		}
+		model.addAttribute("message", msg);
+		List<Uom>list=service.getAllUomList();
+		model.addAttribute("list", list);
+		return "UomListData";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String editUom(@PathVariable String id,Model model)
+	{
+		String page=null;
+		if(service.isUomExit(id))
+		{
+			Optional<Uom>opt=service.getOneUomById(id);
+			if(opt.isPresent())
+			{
+				Uom um=opt.get();
+				model.addAttribute("uom", um);
+				page="UomEdit";
+			}
+			else
+			{
+				page="redirect:../all";
+			}
+		}
+		return page;
+	}
+}

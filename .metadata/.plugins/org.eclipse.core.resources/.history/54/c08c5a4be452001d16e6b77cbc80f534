@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<title>UOM REGISTRATION FORM!!</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h1>UOM REGISTRATION FORM!!</h1>
+			</div>
+			<div class="card-body">
+			<form id="myuomModelForm" th:action="@{/uom/update}" method="post" th:object="${uom}">
+			
+			<div class="row mt-3">
+			<div class="col-4">
+			<label for="Id">UOM ID</label>
+			</div>
+			<div class="col-4">
+			<input type="text" th:field="*{id}" readonly="readonly" class="form-control">
+			</div>
+			</div>
+			
+			<div class="row mt-3 ">
+			<div class="col-4">
+			<label for="uomType"> UOM TYPE:-</label>
+			</div>
+			<div class="col-4">
+			<select th:field="*{uomType}" class="form-control">
+				<option value="">--SELECT--</option>
+				<option value="PACKING">PACKING</option>
+				<option value="NO- PACKING">NO PACKING</option>
+				<option value="NA">NA</option>
+			</select>
+			</div>
+			<div class="col-4">
+			<span id="uomTypeError"></span>
+			</div>
+			</div>
+			<div class="row mt-3">
+			<div class="col-4">
+			<label for="uomModel"> UOM MODEL:-</label>
+			</div>
+			<div class="col-4">
+			<input type="text" th:field="*{uomModel}" class="form-control">
+			</div>
+			</div>
+			<div class="row mt-3">
+			<div class="col-4">
+			<label for="Description">DESCRIPTION:-</label>
+			</div>
+			<div class="col-4">
+			<textarea rows="4" cols="6" th:field="*{Description}" class="form-control"></textarea>
+			</div>
+			</div>
+			<div class="row mt-3">
+			<div class="col-4">
+		
+			</div>
+			<div class="col-4">
+			<input type="submit" value="UPDATE UOM" class="btn btn-success form-control">
+			</div>
+			</div>
+			</form>
+			</div>
+			<div th:if=${message!=null}>
+			<div class="card-footer bg-warning text-center text-white">
+				<b> <span th:text="${message}"></span> </b>
+			</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$("#uomTypeError").hide();
+	
+	var uomTypeError=false;
+	
+	$("#uomType").change(function(){
+		uomType_validate();
+	});
+	function uomType_validate()
+	{
+		var val=$("uomType").val();
+		if(val=='')
+			{
+					$("#uomTypeError").show();
+					$("#uomTypeError").html("Please Choose<b> Any One Option</b>");
+					$("#uomTypeError").css("color",'red');
+					uomTypeError=false;
+			}
+		else
+			{
+					$("#uomTypeError").hide();
+					uomTypeError=true;
+			}
+		return uomTypeError;
+		
+	}
+	
+	$("#myuomModelForm").submit(function(){
+		uomType_validate();
+		
+		if(uomTypeError)
+			{
+				return true;
+			}
+		else
+			{
+				return false;
+			}
+	});
+	
+});
+
+</script>
+</body>
+</html>

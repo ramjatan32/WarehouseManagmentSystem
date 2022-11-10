@@ -1,0 +1,28 @@
+package com.app.warehouse;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class WarehouseAppApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(WarehouseAppApplication.class, args);
+	
+		// Approach-1
+		int [] arr= {10,20,30,40,50,60,10};
+		List<Integer>list=new ArrayList<>();
+		for (Integer integer : arr) {
+			list.add(integer);
+		}
+		System.out.println(list);
+
+	}
+	
+
+}

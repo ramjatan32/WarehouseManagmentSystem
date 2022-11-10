@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>welcome to bootstrap</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+	<!-- <div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-center text-white">
+				<h1>WELCOME TO EMPLOYEE REGISTRATION FORM!!</h1>
+			</div>
+			<div class="card-body">
+			<form action="/save" method="post" id="empFormValid">
+				<div class="row mt-3">
+					<div class="col-4">
+						<label for="empName">EMPLOYEE NAME</label>
+					</div>
+					<div class="col-4">
+						<input type="text" name="empName" id="empName"
+							class="form-control">
+					</div>
+					<div class="col-4">
+					<span id="empNameError"></span>
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col-4">
+						<label for="empSal"> EMPLOYEE SALARY</label>
+					</div>
+					<div class="col-4">
+						<input type="text" name="empSal" id="empSal" class="form-control">
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-4">
+						<label for="empDept"> EMPLOYEE DEPARTMENT</label>
+					</div>
+					<div class="col-4">
+						<input type="text" name="empDept" id="empDept"
+							class="form-control">
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col-4">
+						<label></label>
+					</div>
+					<div class="col-4">
+						<input type="submit" value="SUBMIT"
+							class="btn btn-success form-control">
+					</div>
+				</div>
+			</form>
+
+			</div>
+			<div class="card-footer"></div>
+			
+		</div>
+	</div>
+ -->
+ 
+  <h3>Events-Form Inputs</h3>
+   <input type="text" id="ename" /> 
+   <script>
+	$(document).ready(function(){
+	   $("#ename").keydown(function(){
+	      $(this).css('background-color','red');
+	   });
+	   $("#ename").keyup(function(){
+	      $(this).css('background-color','green');
+	   });
+	});
+   </script>
+</body>
+</html>

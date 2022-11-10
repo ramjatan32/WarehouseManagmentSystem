@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<title>welcome to WhUser Registration form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<form id="whUserTypeForm " action="/whuser/save" method="post">
+				<div class="card-header bg-primary text-center text-white">
+					<h1>WHUSER TYUPE REGISTRATION FORM!!</h1>
+				</div>
+				<div class="card-body">
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userType"> USER TYPE</label>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="userType" id="userType" value="Vendor" />
+							Vendor <input type="radio" name="userType" id="userType"
+								value="Customer" /> Customer
+
+						</div>
+						<div class="col-4">
+						<span id="userTypeError"></span>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userCode"> USER CODE</label>
+
+						</div>
+						<div class="col-4">
+							<input type="text" name="userCode" id="userCode"
+								class="form-control">
+						</div>
+						<div class="col-4">
+						<span id="userCodeError"></span>
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userFor"> USER FOR</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="userFor" id="userFor"
+								class="form-control  " readonly="readonly" >
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userEmail"> USER EMAIL</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="userEmail" id="userEmail"
+								class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="userContact"> USER CONTACT</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="userContact" id="userContact"
+								class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3" >
+						<div class="col-4">
+							<label for="userIdType"> USER ID TYPE</label>
+						</div>
+						<div class="col-4">
+							<select name="userIdType" id="userIdType" class="form-control">
+								<option value="">--SELECT--</option>
+								<option value="PAN CARD">PAN CARD</option>
+								<option value="AADHAR CARD">AADHAR CARD</option>
+								<option value="VOTER CARD">VOTER CARD</option>
+								<option value="OTHER">OTHER</option>
+							</select>
+						</div>
+						<div id="userIdTypeError"></div>
+					</div>
+
+					<div class="row mt-3" >
+						<div class="col-4">
+							<label>IF OTHER</label>
+						</div>
+						<div class="col-4">
+							<input type="text" class="form-control" id="ifOther"	name="ifOther" value="" />
+						</div>
+						<div class="col-4">
+							<span id="ifOtherError"></span>
+						</div>
+					</div>
+
+
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="idNumber"> ID NUMBER</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="idNumber" id="idNumber"
+								class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4"></div>
+						<div class="col-4">
+							<input type="submit" value="CREATE WHUSER"
+								class="btn btn-success form-control">
+						</div>
+					</div>
+				</div>
+				<div th:if="${message!=null}">
+					<div class="card-footer bg-warning text-center text-white">
+						<b><span th:text="${message}"></span> </b>
+					</div>
+				</div>
+			</form>
+			
+		</div>
+		
+	</div>
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#userTyperError").hide();
+		$("#userCodeError").hide();
+		
+		
+		var userTypeError=false;
+		var userCodeError=false;
+		
+		
+		$('input[type="radio"][name="userType"]').change(function(){
+						userType_validate();
+				});
+		
+		$("#userCode").keyup(function(){
+			userCode_validate();
+		});
+		
+		function userType_validate()
+		{
+			debugger;
+			 var len = $('input[type="radio"][name="userType"]:checked').length;
+			if(len==0)
+				{
+					$("#userTypeError").show();
+					$("#userTypeError").html("Please <b>Select any One Option</b>");
+					$("#userTypeError").css("color",'red');
+					userTypeError=false;
+				}
+			else
+				{
+					$("#userTypeError").hide();
+					userTypeError=true;
+				}
+			return userTypeError;
+		}
+		
+		
+		function userCode_validate()
+		{
+			debugger;
+			var val=$("#userCode").val();
+			var exp=/^[A-Z]{1,3}[0-9]{3,5}$/;
+			if(val=='')
+				{
+					$("#userCodeError").show();
+					$("#userCodeError").html("Please Enter User Code Value");
+					$("#userCodeError").css("color",'red');
+					userCodeError=false;
+				}
+			else if(!exp.test(val))
+				{
+				$("#userCodeError").show();
+				$("#userCodeError").html("Please Enter <b>1-3 Capital Letter and 3-5 digit only</b>");
+				$("#userCodeError").css("color",'red');
+				userCodeError=false;	
+				}
+			else
+				{
+						$("#userCodeError").hide();
+						userCodeError=true;
+				}
+			return userCodeError;
+		}
+		
+		
+		//----------------------------------Extra validation code------------------------//
+		
+		
+            //--Auto Fill for User For---
+            $('input[type="radio"][name="userType"]').change(function () {
+                autoFillUserFor();
+            });
+
+            function autoFillUserFor() {
+                var val = $('input[type="radio"][name="userType"]:checked').val();
+                if (val == 'Vendor') {
+                    $("#userFor").val('Purchase');
+                } else if (val == 'Customer') {
+                    $("#userFor").val('Sale');
+                }
+            }
+		
+		
+		
+		
+		$("#ifOtherView").hide();
+		
+		$("#userIdType").change(function(){
+		var val=$("#userIdType").val();
+		if(val=='OTHER')
+			{
+				$("#ifOther").removeAttr("readOnly");
+			}
+		else
+			{
+			$("#ifOther").attr("readOnly","true");
+			$("#ifOther").val("");
+			}	
+		});
+		// ----------------------------end Extra validation code------------------//
+		
+	$("#whUserTypeForm").submit(function(){
+		debugger;
+		userType_validate();
+		userCode_validate();
+		if(userTypeError && userCodeError)
+			return true;
+		else
+			return false;
+		
+	});
+	});
+	
+	
+	
+	
+	</script>
+</body>
+</html>

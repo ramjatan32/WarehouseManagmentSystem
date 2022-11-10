@@ -1,0 +1,5 @@
+package com.app.warehouse.service.impl;
+
+public class WHUserTypeServiceImpl {
+
+}

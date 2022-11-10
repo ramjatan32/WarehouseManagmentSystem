@@ -1,0 +1,66 @@
+package com.app.warehouse.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.app.warehouse.model.WHUserType;
+import com.app.warehouse.service.IWHUserTypeService;
+
+@Controller
+@RequestMapping("/whuser")
+public class WHUserTypeController {
+
+	@Autowired
+	private IWHUserTypeService service;
+	
+	@GetMapping("/show")
+	public String showWhUser()
+	{
+		return "WhUserTypeRegister";
+	}
+	
+	
+	@PostMapping("/save")
+	public String saveWhUser(@ModelAttribute WHUserType whuser, Model model)
+	{
+		String id=service.saveWHUserType(whuser);
+		String msg=" WHUser Type  '"+id+"' saved Successfully";
+		model.addAttribute("message", msg);
+		return "WhUserTypeRegister";
+	}
+	
+	@GetMapping("/all")
+	public String fetchWhuser(Model model)
+	{
+		List<WHUserType> list=service.getAllWHUserType();
+		model.addAttribute("list", list);
+		return "WhuserTypeData";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String deleteWhuser(@PathVariable String id, Model model)
+	{
+		String msg=null;
+		if(service.isWHUserTypeExist(id))
+		{
+			service.deleteWHUserType(id);
+			msg="WhUserType '"+id+"' deleted SuccessFull";
+		}
+		else
+		{
+			msg="WhUserType '"+id +"' Not Exist in the Database";
+		}
+		model.addAttribute("message", msg);
+		List<WHUserType> list=service.getAllWHUserType();
+		model.addAttribute("list", list);
+		return "WhuserTypeData" ;
+	}
+}
