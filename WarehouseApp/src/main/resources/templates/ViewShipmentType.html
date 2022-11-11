@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Shipment type view form</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-center text-white">
+				<h1>SHIPMENT TYPE VIEW FORM!!</h1>
+			</div>
+			<div class="card-body">
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>ID:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.id}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>SHIPMENT MODE:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.shipmentMode}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>SHIPMENT CODE:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.shipmentCode}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>ENABLE SHIPMENT:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.enableShipment}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>DISCRIPTION:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.description}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+			</div>
+			<div class="card-footer bg-warning text-center text-white">
+			<blink> Goto List Form<a th:href="@{/ship/all}"> Click Here</a></blink>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

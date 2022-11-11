@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<title>UOM View One Report</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-center text-white">
+				<h1>UOM MODEL VIEW FORM!!</h1>
+			</div>
+
+			<div class="card-body card-hover">
+
+				<div class="row mt-3">
+					<div class="col-4">
+						<label> ID:-</label>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.id}"></dd>
+						</dl>
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col-4">
+						<label> UOM TYPE:-</label>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.uomType}"></dd>
+						</dl>
+					</div>
+				</div>
+
+				<div class="row mt-3">
+					<div class="col-4">
+						<label> UOM MODE:-</label>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.uomModel}"></dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-4">
+						<label> DESCRIPTION:-</label>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.Description}"></dd>
+						</dl>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="card-footer bg-warning text-center text-white">
+				<h4>  GoTo List Form!!<a th:href="@{/uom/all}">Click Here</a></h4>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<title>Welcome to ShipmentType Data List</title>
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h1>SHIPMENT TYPE LIST DATA FORM!!</h1>
+			</div>
+			<div class="card-body ">
+				<table class="table table-hover">
+					<thead class="bg-dark text-white text-center">
+						<tr>
+							<th>ID</th>
+							<th>SHIPMENTMODE</th>
+							<th>SHIPMENTCODE</th>
+							<th>SHIPMENT ENABLE</th>
+							<th>DESCRIPTION</th>
+							<th colspan="3">OPERATION</th>
+							<th><a th:href="@{/ship/excel}"> Excel</a></th>
+							<th><a th:href="@{/ship/pdf}">PDF</a></th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+						<tr th:each="ob:${page.content}">
+							<td th:text="${ob.id}"></td>
+							<td th:text="${ob.shipmentMode}"></td>
+							<td th:text="${ob.shipmentCode}"></td>
+							<td th:text="${ob.enableShipment}"></td>
+							<td th:text="${ob.description}"></td>
+							<td><a th:href="@{/ship/delete/{id}(id=${ob.id})}" class="btn btn-danger form-control">DELETE</a></td>
+							<td><a th:href="@{/ship/edit/{id}(id=${ob.id})}" class="btn btn-primary form-control">EDIT</a></td>
+							<td><a th:href="@{/ship/view/{id}(id=${ob.id})}" class="btn btn-warning form-control"> VIEW</a></td>
+							<td><a th:href="@{/ship/excel/{id}(id=${ob.id})}" class="btn btn-dark form-control"> EXCEL</a></td>
+							<td><a th:href="@{/ship/pdf/{id}(id=${ob.id})}" class="btn btn-secondary form-control"> PDF</a></td>
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+			<div th:if=${message!=null}>
+			<div class="card-footer bg-warning text-white text-center">
+				<span th:text=${message}></span>
+			</div>
+			</div>
+		</div>
+		<nav aria-label=" Page navigatio-example">
+		
+		<ul class="pagination justify-content-left">
+		
+			<li th:if="${page.hasPrevious()}" class="page-item">
+			<a class="page-link" th:href="@{/ship/all(page.number-1)}">Previous</a>
+			</li>	
+			
+			<th:block th:each="i:${#numbers.sequence(0,page.totalPages-1)}">
+			<li class="page-item">
+			<a class="page-link" th:href="@{/ship/all(page=${i})}">[[${i+1}]]</a>
+			</li>
+			</th:block>
+				
+				<li th:if="${page.hasNext()}" class="page-item">
+				<a class="page-link" th:href="@{/ship/all(page.number+1)}">Next</a>
+				</li>
+				
+		</ul>
+		</nav>
+	</div>
+</body>
+</html>

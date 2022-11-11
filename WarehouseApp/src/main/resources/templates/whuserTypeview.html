@@ -1,0 +1,141 @@
+<!Doctype html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<title>WHUSER TYPE VIEW FORM!!</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-center text-white">
+				<h1>WELCOME TO WHUSER TYPE VIEW FORM !!</h1>
+			</div>
+			<div class="card-body ">
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>ID:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.id}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>USER TYPE:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.userType}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>USER CODE:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.userCode}"></dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>USER FOR:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.userFor}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>USER EMAIL:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.userEmail}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>USER CONTACT:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.userContact}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>USER ID TYPE:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.userIdType}"></dd>
+						</dl>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>IF OTHER:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.ifOther}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-4">
+						<dl>
+							<dt>ID NUMBER:-</dt>
+						</dl>
+					</div>
+					<div class="col-4">
+						<dl>
+							<dd th:text="${ob.idNumber}"></dd>
+						</dl>
+					</div>
+				</div>
+				
+			</div>
+			<div class="card-footer bg-warning text-center text-white">
+				<span>Goto List form<a th:href="@{/whuser/all}">Click
+						Here</a></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
