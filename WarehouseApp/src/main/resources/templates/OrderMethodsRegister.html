@@ -1,10 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https:\\www.thymeleaf.org/">
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<!-- CSS only -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-<h1>Welcome</h1>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h1>ORDER METHOD REGISETER FORM!!!</h1>
+			</div>
+
+
+			<div class="card-body ">
+				<form th:action="@{/order/save}" method="post"
+					th:object="${orderMethods}">
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="orderMode"> ORDER MODE:-</label>
+						</div>
+						<div class="col-4">
+							<input type="radio" name="orderMode" value="Sale">Sale <input
+								type="radio" name="orderMode " value="Purchase">
+							Purchase
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="orderCode"> ORDER CODE:-</label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="orderCode" class="form-control">
+						</div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-4">
+							<label for="orderType"> ORDER TYPE:-</label>
+						</div>
+						<div class="col-4">
+							<select name="orderType" class="form-control">
+								<option value="">--SELECT--</option>
+								<option value="FIFO">FIFO</option>
+								<option value="LIFO">LIFO</option>
+								<option value="FCFO">FCFO</option>
+								<option value="FEFO">FEFO</option>
+							</select>
+						</div>
+					</div>
+					<div class="row mt-3">
+
+						<div class="col-4">
+							<label for="orderAcept"> ORDER ACCEPT:-</label>
+						</div>
+						<div class="col-4">
+							<input type="checkbox" name="orderAcept" value="Multi Model">
+							MULTI MODEL <input type="checkbox" name="orderAcept"
+								value="Accept Return"> ACCEPT RETURN
+						</div>
+					</div>
+				<div class="row mt-3">
+				<div class="col-4">
+				<label for="description"> DESCRIPTION</label>
+				</div>
+				<div class="col-4">
+				<textarea rows="3" cols="6" name="description" class="form-control"></textarea>
+				</div>
+				</div>
+				<div class="row mt-3">
+				<div class="col-4">
+				
+				</div>
+				<div class="col-4">
+				<input type="submit" value="CREATE ORDER METHOD" class="btn btn-success form-control">
+				</div>
+				</div>
+				</form>
+
+			</div>
+			<div class="card-footer text-center text-white bg-warning"></div>
+		</div>
+	</div>
 </body>
 </html>

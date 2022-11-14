@@ -15,7 +15,7 @@ public class OrderMethodsGenerator implements IdentifierGenerator {
 	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
 		String pref="ORD-";
 		String dte=new SimpleDateFormat("ddMMyyyy").format(new Date());
-		int random=new Random().nextInt(1000000000);
+		int random=new Random().nextInt(4675757);
 		
 		return pref+dte+"-"+random;
 	}
