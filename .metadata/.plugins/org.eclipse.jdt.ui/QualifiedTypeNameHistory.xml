@@ -4,11 +4,8 @@
 <fullyQualifiedTypeName name="javax.transaction.Transactional"/>
 <fullyQualifiedTypeName name="com.app.warehouse.repo.IShipmentTypeRepo"/>
 <fullyQualifiedTypeName name="com.app.warehouse.service.IShipmentTypeService"/>
-<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="com.app.warehouse.model.ShipmentType"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.view.document.AbstractXlsView"/>
 <fullyQualifiedTypeName name="com.app.warehouse.view.UomExcelView"/>
 <fullyQualifiedTypeName name="com.app.warehouse.view.ShipmentTypeExcel"/>
@@ -16,7 +13,6 @@
 <fullyQualifiedTypeName name="org.apache.xmlbeans.impl.repackage.Repackage"/>
 <fullyQualifiedTypeName name="org.apache.poi.ss.usermodel.Sheet"/>
 <fullyQualifiedTypeName name="com.lowagie.text.pdf.PdfTable"/>
-<fullyQualifiedTypeName name="org.springframework.data.web.PageableDefault"/>
 <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.view.document.AbstractPdfView"/>
 <fullyQualifiedTypeName name="com.lowagie.text.Font"/>
@@ -24,7 +20,6 @@
 <fullyQualifiedTypeName name="com.lowagie.text.Paragraph"/>
 <fullyQualifiedTypeName name="com.lowagie.text.pdf.PdfPTable"/>
 <fullyQualifiedTypeName name="com.lowagie.text.Element"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
@@ -46,15 +41,21 @@
 <fullyQualifiedTypeName name="javax.persistence.Column"/>
 <fullyQualifiedTypeName name="org.hibernate.id.IdentifierGenerator"/>
 <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
-<fullyQualifiedTypeName name="com.app.warehouse.service.IOrderMethodsService"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 <fullyQualifiedTypeName name="com.app.warehouse.repo.IOrderMethodsRepo"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
-<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="com.app.warehouse.service.IOrderMethodsService"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.GenericGenerator"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="org.springframework.data.web.PageableDefault"/>
+<fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 </qualifiedTypeNameHistroy>

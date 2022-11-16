@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="https:\\www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<div class="card">
+<div class="card-header bg-primary text-center text-white">
+<h1>WELCOME TO ORDER METHOD DATA LIST FORM!!</h1>
+</div>
+<div class="card-body">
+<table class="table table-hover">
+<thead class="bg-dark text-center text-white">
+<tr>
+<th> ORDER ID</th>
+<th> ORDER MODE</th>
+<th> ORDER CODE</th>
+<th> ORDER TYPE</th>
+<th> ORDER ACCEPT</th>
+<th> DESCRIPTION</th>
+</tr>
+</thead>
+<tbody class="text-center ">
+<tr th:each="ob:${page.content}">
+<td th:text="${ob.id}"></td>
+<th th:text="${ob.orderMode}"></th>
+<th th:text="${ob.orderCode}"></th>
+<th th:text="${ob.orderType}"></th>
+<th th:text="${ob.orderAcept}"></th>
+<th th:text="${ob.description}"></th>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+<div class="card-footer text-center text-white bg-warning">
+
+</div>
+</div>
+</div>
+</body>
+</html>

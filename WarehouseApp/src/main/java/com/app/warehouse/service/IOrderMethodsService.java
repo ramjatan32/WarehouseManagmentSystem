@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Page;
 
 import com.app.warehouse.model.OrderMethods;
 
@@ -16,6 +17,6 @@ public interface IOrderMethodsService {
 	Optional<OrderMethods>getOneOrderMethods(String id);
 	boolean isExistOrderMethods(String id);
 	//
-//	Page<OrderMethods>getAllOrderMethodsPage(Pageable pageable);
+	Page<OrderMethods>getAllOrderMethodsPage(Pageable pageable);
 	
 }

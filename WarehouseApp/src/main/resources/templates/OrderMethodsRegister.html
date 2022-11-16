@@ -88,7 +88,11 @@
 				</form>
 
 			</div>
-			<div class="card-footer text-center text-white bg-warning"></div>
+			<div th:if="${message!=null}">
+			<div class="card-footer text-center text-white bg-warning">
+			<b> <span th:text=${message}></span></b>
+			</div>
+			</div>
 		</div>
 	</div>
 </body>

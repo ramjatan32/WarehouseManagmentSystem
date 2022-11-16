@@ -50,6 +50,13 @@ public class OrderMethodsServiceImpl implements IOrderMethodsService{
 		return repo.existsById(id);
 	}
 
+	@Transactional(readOnly = true)
+	public Page<OrderMethods> getAllOrderMethodsPage(Pageable pageable) {
+			
+			//Page<OrderMethods>page= repo.findAll(pageable);
+		return null;
+	}
+
 	
 	
 
